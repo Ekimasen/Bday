@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Stylish Birthday Greeting</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="greeting">
-            <h1>🎉 Happy Birthday! 🎉</h1>
-            <p>May your day bloom with happiness, love, and wonderful surprises!</p>
-            <button id="celebrate">Celebrate 🎂</button>
+            <h1>✨ Happy Birthday ✨</h1>
+            <p>Cheers to a magical day full of joy, laughter, and unforgettable memories!</p>
+            <button id="celebrate">Celebrate 🎉</button>
         </div>
-        <div class="flowers">
-            <div class="flower one"></div>
-            <div class="flower two"></div>
-            <div class="flower three"></div>
-            <div class="flower four"></div>
-        </div>
+        <div class="confetti"></div>
     </div>
 
     <!-- Hidden Popup Message -->
     <div class="popup" id="popupMessage">
         <div class="popup-content">
-            <h2>🎉 Surprise! 🎉</h2>
-            <p>Wishing you all the love, joy, and laughter on your special day! 🎂🎁🎈</p>
+            <h2>🎁 Special Surprise 🎁</h2>
+            <p>Your day just got even more special! Wishing you endless happiness and dreams come true!</p>
             <button id="closePopup">Close</button>
         </div>
     </div>
@@ -34,14 +29,17 @@
         const celebrateButton = document.getElementById('celebrate');
         const popupMessage = document.getElementById('popupMessage');
         const closePopup = document.getElementById('closePopup');
+        const confetti = document.querySelector('.confetti');
 
         celebrateButton.addEventListener('click', () => {
             document.querySelector('.wrapper').classList.add('party');
             popupMessage.style.display = 'block';
+            confetti.classList.add('confetti-animation');
         });
 
         closePopup.addEventListener('click', () => {
             popupMessage.style.display = 'none';
+            confetti.classList.remove('confetti-animation');
         });
     </script>
 </body>

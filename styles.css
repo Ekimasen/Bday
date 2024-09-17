@@ -5,114 +5,120 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: #1d1f21; /* Dark background */
+    font-family: 'Poppins', sans-serif;
+    background: #0e0b16; /* Dark stylish background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    padding: 20px;
+    overflow: hidden;
 }
 
 .wrapper {
     text-align: center;
-    background: linear-gradient(135deg, #ff416c, #ff4b2b); /* Darker pink gradient */
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: #1c1b29;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
     position: relative;
-    color: #ffffff; /* White text */
+    color: #ffffff;
+    max-width: 400px;
+    width: 90%;
+    animation: pulse 2s infinite;
 }
 
 .greeting h1 {
     font-size: 3em;
-    background: linear-gradient(90deg, #ffba92, #ffd174, #ffc700);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: fadeIn 3s ease-in-out infinite;
+    color: #ff6ec7;
+    text-shadow: 0 0 15px rgba(255, 110, 199, 0.7), 0 0 30px rgba(255, 110, 199, 0.5); /* Neon glow effect */
+    animation: neon 2s ease-in-out infinite alternate;
 }
 
 .greeting p {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-top: 10px;
+    color: #d1d1e9;
+    letter-spacing: 0.05em;
     opacity: 0;
-    animation: appear 1s 2s forwards;
+    animation: fadeIn 1s 2s forwards;
 }
 
 button {
-    padding: 15px 25px;
-    font-size: 1.2em;
-    background-color: #ff6f61; /* Vibrant coral color */
-    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background: #ff6ec7;
     border: none;
-    border-radius: 8px;
+    color: white;
+    border-radius: 10px;
     margin-top: 20px;
     cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s ease;
     opacity: 0;
-    animation: appear 1s 3s forwards;
-    transition: background-color 0.3s ease;
+    animation: fadeIn 1s 3s forwards;
 }
 
 button:hover {
-    background-color: #ff8b75;
+    background-color: #ff85d2;
+    transform: scale(1.1);
 }
 
-.flowers {
-    position: relative;
-    display: none;
-    margin-top: 30px;
+/* Confetti */
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
 }
 
-.party .flowers {
-    display: block;
-}
-
-.flower {
+.confetti span {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background-image: url('https://www.pngall.com/wp-content/uploads/4/Flower-PNG-Pic.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    bottom: -120px;
-    animation: float 6s ease-in-out infinite;
+    width: 10px;
+    height: 10px;
+    background-color: #ff6ec7;
+    border-radius: 50%;
+    animation: confetti 5s linear infinite;
 }
 
-.flower.one {
-    left: 10%;
-    animation-delay: 1s;
+.confetti-animation span:nth-child(odd) {
+    background-color: #50d890;
 }
 
-.flower.two {
-    left: 30%;
-    animation-delay: 2s;
+@keyframes confetti {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
 
-.flower.three {
-    left: 60%;
-    animation-delay: 3s;
+/* Neon Pulse Animation */
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px rgba(255, 110, 199, 0.8), 0 0 20px rgba(255, 110, 199, 0.5), 0 0 30px rgba(255, 110, 199, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 110, 199, 1), 0 0 30px rgba(255, 110, 199, 0.8), 0 0 40px rgba(255, 110, 199, 0.6);
+    }
 }
 
-.flower.four {
-    left: 80%;
-    animation-delay: 4s;
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
+/* Fade-in Animation */
 @keyframes fadeIn {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-@keyframes appear {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-600px); }
 }
 
 /* Popup Message */
@@ -123,42 +129,50 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .popup-content {
     background-color: #27292c;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .popup-content h2 {
-    font-size: 2em;
-    color: #ffd174;
+    font-size: 2.5em;
+    color: #ff6ec7;
 }
 
 .popup-content p {
     font-size: 1.2em;
     margin: 10px 0;
-    color: #ddd;
+    color: #d1d1e9;
 }
 
 .popup-content button {
-    padding: 10px 20px;
+    padding: 10px 25px;
     font-size: 1em;
-    background-color: #ff6f61;
+    background-color: #ff6ec7;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .popup-content button:hover {
-    background-color: #ff8b75;
+    transform: scale(1.1);
+}
+
+/* Confetti Animation */
+@keyframes confetti {
+    0% { transform: translateY(-100px) rotate(0); }
+    100% { transform: translateY(100vh) rotate(720deg); }
 }
 
 /* Responsive Design */
@@ -168,25 +182,16 @@ button:hover {
     }
 
     .greeting p {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     button {
         font-size: 1em;
-        padding: 12px 20px;
-    }
-
-    .flower {
-        width: 80px;
-        height: 80px;
+        padding: 12px 25px;
     }
 
     .popup-content h2 {
-        font-size: 1.8em;
-    }
-
-    .popup-content p {
-        font-size: 1em;
+        font-size: 2em;
     }
 }
 
@@ -201,16 +206,11 @@ button:hover {
 
     button {
         font-size: 0.9em;
-        padding: 10px 18px;
-    }
-
-    .flower {
-        width: 60px;
-        height: 60px;
+        padding: 10px 20px;
     }
 
     .popup-content h2 {
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
 
     .popup-content p {
