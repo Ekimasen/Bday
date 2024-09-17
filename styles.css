@@ -29,6 +29,18 @@ body {
     animation: fadeIn 1.5s ease-out;
 }
 
+/* Image Container */
+.image-container {
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 .greeting h1 {
     font-size: 2em;
     color: #7b4397;
@@ -145,6 +157,10 @@ button:hover {
         font-size: 0.9em;
         padding: 10px 20px;
     }
+
+    .image-container {
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -164,6 +180,10 @@ button:hover {
     button {
         font-size: 0.8em;
         padding: 8px 16px;
+    }
+
+    .image-container {
+        margin-bottom: 10px;
     }
 
     .popup-content {
