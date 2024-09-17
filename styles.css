@@ -32,12 +32,15 @@ body {
 /* Image Container */
 .image-container {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .image-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image covers the circle properly */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -161,6 +164,11 @@ button:hover {
     .image-container {
         margin-bottom: 15px;
     }
+
+    .image-container img {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -184,6 +192,11 @@ button:hover {
 
     .image-container {
         margin-bottom: 10px;
+    }
+
+    .image-container img {
+        width: 100px;
+        height: 100px;
     }
 
     .popup-content {
