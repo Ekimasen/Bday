@@ -6,122 +6,58 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0e0b16; /* Dark stylish background */
+    background: #f1f1f1; /* Light elegant background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column;
-    overflow: hidden;
+    padding: 20px;
 }
 
+/* Wrapper */
 .wrapper {
-    text-align: center;
-    background: #1c1b29;
+    background: linear-gradient(135deg, #7b4397, #dc2430); /* Elegant gradient */
     padding: 50px;
     border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    position: relative;
-    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
     max-width: 400px;
-    width: 90%;
-    animation: pulse 2s infinite;
+    color: #ffffff;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .greeting h1 {
-    font-size: 3em;
-    color: #ff6ec7;
-    text-shadow: 0 0 15px rgba(255, 110, 199, 0.7), 0 0 30px rgba(255, 110, 199, 0.5); /* Neon glow effect */
-    animation: neon 2s ease-in-out infinite alternate;
+    font-size: 2.5em;
+    color: #fffdf8; /* Warm white text */
+    margin-bottom: 20px;
 }
 
 .greeting p {
-    font-size: 1.3em;
-    margin-top: 10px;
-    color: #d1d1e9;
-    letter-spacing: 0.05em;
-    opacity: 0;
-    animation: fadeIn 1s 2s forwards;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #fcecec;
+    line-height: 1.6;
 }
 
 button {
-    padding: 15px 30px;
-    font-size: 1.1em;
-    background: #ff6ec7;
-    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    background-color: #f7b731; /* Classy gold accent */
     color: white;
-    border-radius: 10px;
-    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s ease;
-    opacity: 0;
-    animation: fadeIn 1s 3s forwards;
+    box-shadow: 0 4px 12px rgba(247, 183, 49, 0.4);
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #ff85d2;
-    transform: scale(1.1);
+    background-color: #f5a623; /* Slightly darker gold on hover */
+    transform: scale(1.05);
 }
 
-/* Confetti */
-.confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.confetti span {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #ff6ec7;
-    border-radius: 50%;
-    animation: confetti 5s linear infinite;
-}
-
-.confetti-animation span:nth-child(odd) {
-    background-color: #50d890;
-}
-
-@keyframes confetti {
-    0% {
-        transform: translateY(-100vh) rotate(0deg);
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-    }
-}
-
-/* Neon Pulse Animation */
-@keyframes neon {
-    from {
-        text-shadow: 0 0 10px rgba(255, 110, 199, 0.8), 0 0 20px rgba(255, 110, 199, 0.5), 0 0 30px rgba(255, 110, 199, 0.3);
-    }
-    to {
-        text-shadow: 0 0 20px rgba(255, 110, 199, 1), 0 0 30px rgba(255, 110, 199, 0.8), 0 0 40px rgba(255, 110, 199, 0.6);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Popup Message */
+/* Popup */
 .popup {
     display: none;
     position: fixed;
@@ -129,91 +65,96 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
     justify-content: center;
     align-items: center;
     z-index: 10;
 }
 
 .popup-content {
-    background-color: #27292c;
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: popupAnimation 0.5s ease;
 }
 
 .popup-content h2 {
-    font-size: 2.5em;
-    color: #ff6ec7;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #7b4397;
 }
 
 .popup-content p {
     font-size: 1.2em;
-    margin: 10px 0;
-    color: #d1d1e9;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .popup-content button {
-    padding: 10px 25px;
+    padding: 10px 20px;
     font-size: 1em;
-    background-color: #ff6ec7;
+    background-color: #7b4397;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .popup-content button:hover {
-    transform: scale(1.1);
+    background-color: #6a387f;
 }
 
-/* Confetti Animation */
-@keyframes confetti {
-    0% { transform: translateY(-100px) rotate(0); }
-    100% { transform: translateY(100vh) rotate(720deg); }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popupAnimation {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .greeting h1 {
-        font-size: 2.5em;
+        font-size: 2em;
     }
 
     .greeting p {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     button {
-        font-size: 1em;
-        padding: 12px 25px;
-    }
-
-    .popup-content h2 {
-        font-size: 2em;
+        font-size: 0.9em;
     }
 }
 
 @media screen and (max-width: 480px) {
     .greeting h1 {
-        font-size: 2em;
-    }
-
-    .greeting p {
-        font-size: 1em;
-    }
-
-    button {
-        font-size: 0.9em;
-        padding: 10px 20px;
-    }
-
-    .popup-content h2 {
         font-size: 1.8em;
     }
 
-    .popup-content p {
+    .greeting p {
         font-size: 0.9em;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.8em;
     }
 }

@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylish Birthday Greeting</title>
+    <title>Elegant Birthday Greeting</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="greeting">
-            <h1>✨ Happy Birthday ✨</h1>
-            <p>Cheers to a magical day full of joy, laughter, and unforgettable memories!</p>
-            <button id="celebrate">Celebrate 🎉</button>
+            <h1>🌿 Happy Birthday! 🌸</h1>
+            <p>Wishing you a day filled with grace, beauty, and serenity. Let your dreams bloom today!</p>
+            <button id="celebrate">Unwrap the Message 🎁</button>
         </div>
-        <div class="confetti"></div>
     </div>
 
+    <!-- Popup Message -->
     <div class="popup" id="popupMessage">
         <div class="popup-content">
-            <h2>🎁 Special Surprise 🎁</h2>
-            <p>Your day just got even more special! Wishing you endless happiness and dreams come true!</p>
+            <h2>✨ Your Special Wish! ✨</h2>
+            <p>May this year be full of new beginnings and beautiful moments.</p>
             <button id="closePopup">Close</button>
         </div>
     </div>
@@ -28,17 +28,13 @@
         const celebrateButton = document.getElementById('celebrate');
         const popupMessage = document.getElementById('popupMessage');
         const closePopup = document.getElementById('closePopup');
-        const confetti = document.querySelector('.confetti');
 
         celebrateButton.addEventListener('click', () => {
-            document.querySelector('.wrapper').classList.add('party');
-            popupMessage.style.display = 'block';
-            confetti.classList.add('confetti-animation');
+            popupMessage.style.display = 'flex';
         });
 
         closePopup.addEventListener('click', () => {
             popupMessage.style.display = 'none';
-            confetti.classList.remove('confetti-animation');
         });
     </script>
 </body>
