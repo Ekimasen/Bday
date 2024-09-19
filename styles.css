@@ -216,3 +216,7 @@ button:hover {
         padding: 8px 16px;
     }
 }
+.mess{
+    text-align: end;
+    font-weight: 900;
+}
