@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegant Birthday Greeting</title>
+    <title>Happy Birthday!</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -35,7 +38,17 @@
         const closePopup = document.getElementById('closePopup');
 
         celebrateButton.addEventListener('click', () => {
-            popupMessage.style.display = 'flex';
+            // Trigger confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            // Delay the popup to let the confetti show
+            setTimeout(() => {
+                popupMessage.style.display = 'flex';
+            }, 1500); // 1.5 second delay for the confetti effect
         });
 
         closePopup.addEventListener('click', () => {
